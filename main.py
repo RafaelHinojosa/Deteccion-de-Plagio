@@ -1,18 +1,43 @@
 import customtkinter
+from tkinter import filedialog
+from os import path
 from visualizacion import PredictApp
 
 class MyCodeFrame(customtkinter.CTkFrame):
     def __init__(self, master, title):
         super().__init__(master)
         self.grid_columnconfigure(0, weight=1)
-        self.title = title
         self.code = ''
         
-        self.title = customtkinter.CTkLabel(self, text=self.title, fg_color="gray30", corner_radius=6)
+        # Label
+        self.title = customtkinter.CTkLabel(self, text=title, fg_color="gray30", corner_radius=6)
         self.title.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="ew")
         
-        self.textbox = customtkinter.CTkTextbox(master=self, height=280, font=('consolas', 18))
+        # Code
+        self.textbox = customtkinter.CTkTextbox(master=self, height=250, font=('consolas', 18))
         self.textbox.grid(row=1, column=0, padx=10, pady=(10, 0), sticky="nsew")
+
+        # Select Java File
+        self.button = customtkinter.CTkButton(self, fg_color="teal", text="Seleccionar Archivo", command=self.select_java_file)
+        self.button.grid(row=2, column=0, padx=10, pady=10, sticky="ew", columnspan=1)
+
+    def select_java_file(self):
+        self.file_path = filedialog.askopenfilename(
+            initialdir="/", 
+            title="Selecciona un código en Java", 
+            filetypes=(("archivos .java", "*.java"),)
+        )
+        
+        if self.file_path == '':
+            return
+        
+        head, self.filename = path.split(self.file_path)
+
+        with open(self.file_path) as java_code:
+            self.code = java_code.read()
+            self.title.configure(text=self.filename)
+            self.textbox.delete("0.0", "end")
+            self.textbox.insert(index="0.0", text=self.code)
 
     def getCode(self):
         self.code = self.textbox.get("0.0", "end")
@@ -45,7 +70,6 @@ class App(customtkinter.CTk):
         self.label = customtkinter.CTkLabel(self, text="Veredicto", fg_color="gray30", corner_radius=6)
         self.label.grid(row=3, column=0, padx=10, pady=10, sticky="ew", columnspan=2)
 
-
     def detect_plagiarism(self):
         self.code1 = predictApp.process_code(self.code1_frame.getCode())
         self.code2 = predictApp.process_code(self.code2_frame.getCode())
@@ -54,6 +78,11 @@ class App(customtkinter.CTk):
         self.predictions = predictApp.predict_plagiarism(self.code1, self.code2)    
         self.veredict = predictApp.determine_plagiarism(self.predictions)
         self.label.configure(text=self.veredict)
+
+        if self.veredict == "Sí es plagio":
+            self.label.configure(fg_color="red")
+        else:
+            self.label.configure(fg_color="green")
 
 predictApp = PredictApp()
 app = App()

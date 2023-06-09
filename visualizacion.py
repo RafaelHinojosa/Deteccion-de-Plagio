@@ -29,6 +29,6 @@ class PredictApp():
   
   def determine_plagiarism(self, predictions):
     if predictions == 1:
-      return "Sí es plagio."
+      return "Sí es plagio"
     else:
-      return "No es plagio."
+      return "No es plagio"
