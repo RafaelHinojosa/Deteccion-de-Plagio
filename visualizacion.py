@@ -1,6 +1,7 @@
 import joblib
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
+import difflib
 
 class PredictApp(): 
   def __init__(self):
@@ -14,6 +15,20 @@ class PredictApp():
     text = text.lower()
     text = text.replace('\n', ' ')
     text = text.replace('\t', ' ')
+    return text
+  
+  def process_code2(self, text):
+    punctuation = ["_", "-", ".", ":", ",", ";", "(", ")", "?", "¿", "¡", "!", '"', "{", "}", "[", "]", "+", "*", "=", "/", "%", "<", ">"]
+    punctuation2 = ["{", "}"]
+    
+    for i in punctuation2:
+        text = text.replace(i, " ")
+
+    for i in punctuation:
+        text = text.replace(i, " " + i + " ")
+    
+    text = text.lower()
+
     return text
   
   def predict_plagiarism(self, code1, code2):
@@ -32,3 +47,22 @@ class PredictApp():
       return "Sí es plagio"
     else:
       return "No es plagio"
+  
+  def identify_plagiarized_segments(self, code1, code2):
+    lines1 = code1.split('\n')
+    lines2 = code2.split('\n')
+
+    matcher = difflib.SequenceMatcher(None, lines1, lines2)
+    match_blocks = matcher.get_matching_blocks()
+
+    plagiarized_segments = []
+    for match in match_blocks:
+        start1, start2, length = match
+        if length > 0:
+            segment1 = lines1[start1:start1+length]
+            segment2 = lines2[start2:start2+length]
+            
+            if not all(line.strip() == '' for line in segment1) and not all(line.strip() == '' for line in segment2):
+                plagiarized_segments.append((segment1, segment2))
+
+    return plagiarized_segments
