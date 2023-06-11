@@ -29,23 +29,23 @@ Determinar si dos códigos fuente escritos en Javacontienen plagio al determinar
 ## M0:TF-IDF
 Es un método matemático que calcula los valores de frecuencia para cada término y compara los vectores resultantes utilizando la distancia del coseno.
 
-<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/0-TF-IDF.png"></p>
+<p align="center"><img width=50% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/0-TF-IDF.png"></p>
 
 ## M1: Regresión Logística
 
-<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/1-Regresion.png"></p>
+<p align="center"><img width=50% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/1-Regresion.png"></p>
 
 ## M2: RNN + LSTM
 
-<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/2-LSTM.png"></p>
+<p align="center"><img width=50% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/2-LSTM.png"></p>
 
 ## M3: CNN
 
-<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/3-CNN.png"></p>
+<p align="center"><img width=50% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/3-CNN.png"></p>
 
 ## M4: Random Forest Classifier
 
-<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/4-Random Forest.png"></p>
+<p align="center"><img width=50% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/blob/main/Media/4-Random Forest.png"></p>
 
 | Métrica | Socre |
 | ------- | ----- |
