@@ -12,9 +12,9 @@ Principales consecuencias en el plagio de software:
 ## Estado de arte
 | Autores | Hechos relevantes | Precisión |
 | ------- | ----------------- | --------- |
-| Omi, Hossain, Islam y Mittra(2021) | DNN, SVM y LSTM | 96.7% |
-| Bandara y Wijayarathna (2011) | Naïve Bayes Classifier, KNN yAdaBoost Meta-learning |(75% - 86)% |
-| Ullah, Wang, Farhan, Habib yKhalid (2021) | PCA y MLR |(73% - 86)% |
+| Omi, Hossain, Islam y Mittra (2021) | DNN, SVM y LSTM | 96.7% |
+| Bandara y Wijayarathna (2011) | Naïve Bayes Classifier, KNN y AdaBoost Meta-learning | 75% - 86% |
+| Ullah, Wang, Farhan, Habib yKhalid (2021) | PCA y MLR |73% - 86% |
 
 ## Objetivo
 Determinar si dos códigos fuente escritos en Javacontienen plagio al determinar su similitudutilizando métodos matemáticos como primeraaproximación, y posteriormente refinar dichapredicción con el uso de Machine Learning y DeepLearning para obtener resultados más precisos.
@@ -24,28 +24,28 @@ Determinar si dos códigos fuente escritos en Javacontienen plagio al determinar
 - Identificar los segmentos plagiados de los códigos.
 
 ## Flujo de trabajo
-(Agregar ss)
+<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/Media/Flujo de trabajo.png"></p>
 
 ## M0:TF-IDF
 Es un método matemático que calcula los valores de frecuencia para cada término y compara los vectores resultantes utilizando la distancia del coseno.
 
-(Agregar ss)
+<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/Media/0-TF-IDF.png"></p>
 
 ## M1: Regresión Logística
 
-(Agregar ss)
+<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/Media/1-Regresion.png"></p>
 
 ## M2: RNN + LSTM
 
-(Agregar ss)
+<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/Media/2-LSTM.png"></p>
 
 ## M3: CNN
 
-(Agregar ss)
+<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/Media/3-CNN.png"></p>
 
 ## M4: Random Forest Classifier
 
-(Agregar ss)
+<p align="center"><img width=70% src="https://github.com/RafaelHinojosa/Deteccion-de-Plagio/Media/4-Random Forest.png"></p>
 
 | Métrica | Socre |
 | ------- | ----- |
